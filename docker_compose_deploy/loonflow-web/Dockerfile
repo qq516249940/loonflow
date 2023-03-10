@@ -1,15 +1,16 @@
-FROM centos:7
+FROM ubuntu:22.04
 LABEL maintainer=blackholll@163.com
 
 # 安装基础包
-RUN mkdir -p /var/log/loonflow & \
-    rpm -Uvh http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm & \
-    yum install -y wget mysql-devel gcc gcc-devel python3-devel mysql-devel zlib-devel openssl-devel openssl-devel git automake libtool make
+RUN mkdir -p /var/log/loonflow && \
+#    rpm -Uvh http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm && \
+#    yum install -y wget mysql-devel gcc gcc-devel python3-devel mysql-devel zlib-devel openssl-devel openssl-devel git automake libtool make
+     apt update -y 
 
 # 安装python3.10
 RUN wget https://www.python.org/ftp/python/3.10.9/Python-3.10.9.tgz
 RUN tar zxvf Python-3.10.9.tgz
-RUN cd Python-3.10.9 && sed -i 's/PKG_CONFIG openssl /PKG_CONFIG openssl11 /g' configure && ./configure --enable-optimizations && make altinstall 
+RUN cd Python-3.10.9 && --enable-optimizations && make altinstall 
 RUN python3.10 -m ssl
 RUN python3.10 -m venv /opt/venv/loonflow
 
