@@ -11,7 +11,7 @@ RUN mkdir -p /var/log/loonflow && \
 # 安装python3.10
 RUN wget https://www.python.org/ftp/python/3.10.9/Python-3.10.9.tgz
 RUN tar zxvf Python-3.10.9.tgz
-RUN cd Python-3.10.9 && --enable-optimizations && make altinstall 
+RUN cd Python-3.10.9 && ./configure --enable-optimizations && make altinstall 
 RUN python3.10 -m ssl
 RUN python3.10 -m venv /opt/venv/loonflow
 
