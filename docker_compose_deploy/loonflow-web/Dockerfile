@@ -58,7 +58,7 @@ RUN npm run build
 
 
 # 安装nginx
-RUN yum install -y nginx
+RUN apt install -y nginx
 # uwsgi配置文件
 ADD docker_compose_deploy/loonflow-web/uwsgi.ini /opt/loonflow/uwsgi.ini
 # nginx配置文件
