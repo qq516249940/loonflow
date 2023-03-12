@@ -14,10 +14,14 @@ jobs:
     timeout-minutes: 600
     steps:
     - uses: actions/checkout@master    
-    - name: Install Dependencies
+    - name: build loonflow-web
       run: |
         cd docker_compose_deploy
-        docker compose build --no-cache
+        docker compose build loonflow-web --no-cache
+    - name: build loonflow-task
+      run: |
+        cd docker_compose_deploy
+        docker compose build loonflow-task --no-cache        
 #     - name: Run Tests
 #       run: |
 #         python manage.py test
