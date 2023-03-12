@@ -13,6 +13,7 @@ jobs:
     #最大超市分钟设置为600分钟
     timeout-minutes: 600
     steps:
+    - uses: actions/checkout@master    
     - name: Install Dependencies
       run: |
         cd docker_compose_deploy
