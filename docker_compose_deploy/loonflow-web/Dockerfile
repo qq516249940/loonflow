@@ -6,12 +6,12 @@ RUN mkdir -p /var/log/loonflow && \
 #    rpm -Uvh http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm && \
 #    yum install -y wget mysql-devel gcc gcc-devel python3-devel mysql-devel zlib-devel openssl-devel openssl-devel git automake libtool make
      apt update -y && \
-     apt install wget build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libreadline-dev libffi-dev libsqlite3-dev wget libbz2-dev tk-dev liblzma-dev lzma -y
+     apt install python3 python3-devel wget build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libreadline-dev libffi-dev libsqlite3-dev wget libbz2-dev tk-dev liblzma-dev lzma -y
 
 # 安装python3.10
-RUN wget https://www.python.org/ftp/python/3.10.9/Python-3.10.9.tgz
-RUN tar zxvf Python-3.10.9.tgz
-RUN cd Python-3.10.9 && ./configure --enable-optimizations && make altinstall 
+# RUN wget https://www.python.org/ftp/python/3.10.9/Python-3.10.9.tgz
+# RUN tar zxvf Python-3.10.9.tgz
+# RUN cd Python-3.10.9 && ./configure --enable-optimizations && make altinstall 
 RUN python3.10 -m ssl
 RUN python3.10 -m venv /opt/venv/loonflow
 
